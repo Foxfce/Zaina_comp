@@ -1,1 +1,23 @@
+/* Font Prompt */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
+
+@theme{
+    --font-sans: 'Prompt', serif ;
+
+    --color-primary: hsl(349, 100%, 25%);
+    --color-secondary: hsl(349, 100%, 35%);
+
+    --bg
+    --bg-dark
+    --bg-light
+
+    --text
+    --text-muted
+}
+
+@layer base{
+    html, body{
+        font-family: var(--font-sans);
+    }
+}
