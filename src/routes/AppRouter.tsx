@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import {ROUTE} from '../constants/routes'
+
 import Layout from '../pages/Layout'
 
 type Props = {}
@@ -8,14 +10,14 @@ function AppRouter({ }: Props) {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<div>Home page</div>} />
-          <Route path='/about' element={<div>About</div>} />
-          <Route path='/catalogue' element={<div>Catalogue</div>} />
-          <Route path='/services' element={<div className='text-primary'>บริการของเรา</div>} />
-          <Route path='/project' element={<div>ผลงาน</div>} />
-          <Route path='/news' element={<div>บทความ</div>} />
-          <Route path='/contact' element={<div>ติดต่อ</div>} />
+        <Route path={ROUTE.HOME} element={<Layout />}>
+          <Route index element={<div className='mt-64'>Home page</div>} />
+          <Route path={ROUTE.ABOUT} element={<div>About</div>} />
+          <Route path={ROUTE.CATALOGUE} element={<div>Catalogue</div>} />
+          <Route path={ROUTE.SERVICE} element={<div className='text-primary'>บริการของเรา</div>} />
+          <Route path={ROUTE.WORK} element={<div>ผลงาน</div>} />
+          <Route path={ROUTE.NEW} element={<div>บทความ</div>} />
+          <Route path={ROUTE.CONTACT} element={<div>ติดต่อ</div>} />
           <Route path='/pallete' element={
             <>
               <div className='text-primary'>{`Primary\n`}</div>
