@@ -3,21 +3,24 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {ROUTE} from '../constants/routes'
 
 import Layout from '../pages/Layout'
+import Home from '../pages/Home'
+import About from '../conponents/About'
 
 type Props = {}
 
 function AppRouter({ }: Props) {
+  
   return (
     <BrowserRouter>
       <Routes>
         <Route path={ROUTE.HOME} element={<Layout />}>
-          <Route index element={<div className='mt-64'>Home page</div>} />
-          <Route path={ROUTE.ABOUT} element={<div>About</div>} />
-          <Route path={ROUTE.CATALOGUE} element={<div>Catalogue</div>} />
-          <Route path={ROUTE.SERVICE} element={<div className='text-primary'>บริการของเรา</div>} />
-          <Route path={ROUTE.WORK} element={<div>ผลงาน</div>} />
-          <Route path={ROUTE.NEW} element={<div>บทความ</div>} />
-          <Route path={ROUTE.CONTACT} element={<div>ติดต่อ</div>} />
+          <Route index element={<Home />} />
+          <Route path={ROUTE.ABOUT.replace("#",'')} element={<About />}/>
+          <Route path={ROUTE.CATALOGUE.replace("#",'')} element={<div>Catalogue</div>} />
+          <Route path={ROUTE.SERVICE.replace("#",'')} element={<div className='text-primary'>บริการของเรา</div>} />
+          <Route path={ROUTE.WORK.replace("#",'')} element={<div>ผลงาน</div>} />
+          <Route path={ROUTE.NEW.replace("#",'')} element={<div>บทความ</div>} />
+          <Route path={ROUTE.CONTACT.replace("#",'')} element={<div>ติดต่อ</div>} />
           <Route path='/pallete' element={
             <>
               <div className='text-primary'>{`Primary\n`}</div>

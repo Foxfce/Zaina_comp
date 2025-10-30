@@ -1,15 +1,13 @@
-import Body from "../conponents/Body"
-import Footer from "../conponents/Footer"
-import Header from "../conponents/Header"
+import About from "../conponents/About"
+import Projects from "../conponents/Projects"
 
 type Props = {}
 
 function Home({}: Props) {
   return (
     <>
-    <Header />
-    <Body />
-    <Footer />
+    <About />
+    <Projects />
     </>
   )
 }

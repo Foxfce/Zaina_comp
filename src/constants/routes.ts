@@ -1,9 +1,9 @@
 export const ROUTE = {
     HOME : "/",
-    ABOUT: "/about",
-    CATALOGUE: "/catalogue",
-    SERVICE: "/services",
-    NEW:"/news",
-    WORK: "/projects",
-    CONTACT: "/contact",
+    ABOUT: "/#About",
+    CATALOGUE: "/#Catalogue",
+    SERVICE: "/#Services",
+    NEW:"/#News",
+    WORK: "/#Projects",
+    CONTACT: "/#Contact",
 }

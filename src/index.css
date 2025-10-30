@@ -1,15 +1,21 @@
 /* Font Prompt */
 @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
 @theme {
-    --font-sans: 'Prompt', serif;
+    /* --font-sans: 'Prompt', serif; */
+    --font-prompt: "Prompt", sans-serif;
+    --font-outfit: "Outfit", sans-serif;
+    --font-bilingual: var(--font-prompt), var(--font-outfit);
 
-    --color-primary: hsl(28 31% 57%);
+    --color-primary: hsl(28, 31%, 57%);
     --color-secondary: hsl(28 31% 67%);
+    --color-transparent: hsla(28, 31%, 67%, 0.2);
 
     --color-red-primary: hsl(349, 100%, 25%);
     --color-red-secondary: hsl(349, 100%, 35%);
+    --color-red-transparent: hsla(349, 100%, 35%, 0.2);
 
     --color-softperl-primary: hsl(48 16% 94%);
     --color-softperl-secondary: hsl(48 16% 84%);
@@ -46,10 +52,24 @@ body.dark {
 }
 
 @layer base {
+    /* @font-face {
+        font-family: 'Bilingual Sans';
+        src: local('Prompt'), url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap') format('woff2');
+        unicode-range: U+0E00-0E7F;
+    }
+
+    @font-face {
+        font-family: 'Bilingual Sans';
+        src: url('Outfit'), url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap') format('woff2');
+        unicode-range: U+0000-007F, U+0080-00FF;
+    } */
+
+    :root {
+        --font-sans: var(--font-bilingual);
+    }
 
     html,
     body {
-        font-family: var(--font-sans);
         background: var(--bg-dark);
         color: var(--text-muted);
     }
@@ -60,27 +80,63 @@ body.dark {
         color: var(--text);
         font-weight: 500;
         border-radius: 0.5rem;
-        margin-top: 1.5rem;
+        /* margin-top: 1.5rem; */
         border: solid 1px var(--border-card);
         box-shadow: var(--shadow);
     }
 
-    button.btn-main {
+    button.btn-main-1 {
         background: var(--color-red-primary);
         padding: 0.5rem 2rem 0.5rem 2rem;
         color: var(--color-softperl-primary);
         font-weight: 500;
         border-radius: 0.5rem;
-        margin-top: 1.5rem;
+        /* margin-top: 1.5rem; */
         border: solid 1px var(--color-red-primary);
         box-shadow: var(--shadow);
+        cursor: pointer;
     }
-    button.btn-main:hover{
+
+    button.btn-main-1:hover {
         background: var(--color-red-secondary);
         border: solid 1px var(--color-red-secondary);
     }
 
-    div {
+    button.btn-main-2 {
+        background: var(--color-primary);
+        padding: 0.5rem 2rem 0.5rem 2rem;
+        color: var(--color-softperl-primary);
+        font-weight: 500;
+        border-radius: 0.5rem;
+        /* margin-top: 1.5rem; */
+        border: solid 1px var(--color-primary);
+        box-shadow: var(--shadow);
+        cursor: pointer;
+    }
+
+    button.btn-main-2:hover {
+        background: var(--color-secondary);
+        border: solid 1px var(--color-secondary);
+    }
+
+    button.btn-transparent {
+        background: transparent;
+        padding: 0.5rem 2rem 0.5rem 2rem;
+        color: var(--color-softperl-primary);
+        font-weight: 500;
+        border-radius: 0.5rem;
+        /* margin-top: 1.5rem; */
+        border: solid 1px var(--color-primary);
+        box-shadow: var(--shadow);
+        cursor: pointer;
+    }
+
+    button.btn-transparent:hover {
+        background: var(--color-transparent);
+        border: solid 1px var(--color-secondary);
+    }
+
+    /* div {
         background: var(--gradient);
         padding: 1.5rem;
         border-radius: 1rem;
@@ -88,7 +144,7 @@ body.dark {
         border: solid 1px var(--border-card);
         border-top: solid 1px var(--highlight);
         box-shadow: var(--shadow);
-    }
+    } */
 
     /* div:hover {
         background: var(--gradient-hover);
