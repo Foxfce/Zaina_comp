@@ -86,7 +86,7 @@ export default function MobileMenu({  showMobileMenuProp, handleShowMobileMenu, 
             {/* sliding drawer (from right) */}
             <div
                 className={`
-          absolute right-0 top-0 bottom-0 w-full max-w-xs
+          absolute right-0 top-0 bottom-0 w-full
           transform transition-transform duration-300 ease-in-out
           ${visible ? 'translate-x-0' : 'translate-x-full'}
           bg-softperl-primary overflow-hidden
@@ -107,7 +107,7 @@ export default function MobileMenu({  showMobileMenuProp, handleShowMobileMenu, 
                             key={index}
                             onClick={handleShowMobileMenu}
                             to={link.path}
-                            className="cursor-pointer hover:text-primary px-4 py-2 rounded-full inline-block transition-all"
+                            className="cursor-pointer hover:text-primary px-4 py-2 rounded-full inline-block transition-all text-2xl font-bold"
                         >
                             {link.name}
                         </Link>
