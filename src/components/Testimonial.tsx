@@ -29,7 +29,7 @@ function Testimonial({ }: Props) {
                         <h2 className='text-xl text-gray-700 font-medium'>{testimonial.name}</h2>
                         <p className='text-gray-500 mb-4 text-sm'>{testimonial.title}</p>
                         <div className='flex justify-center gap-1 text-red-primary mb-4'>
-                            {Array.from({ length: testimonial.rating }, (item, index) => (
+                            {Array.from({ length: testimonial.rating }, (_,index) => (
                                 <img key={index} src={assets.star_icon} alt="" />
                             ))}
                         </div>
