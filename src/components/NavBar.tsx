@@ -1,74 +1,15 @@
 import { Link } from "react-router-dom";
 import { assets } from "../assets/mockup/assets.ts"
-import { TEXT_TH } from "../constants/th";
-import { TEXT_EN } from "../constants/en";
-
-
-import { ROUTE } from "../constants/routes"
 import { useEffect, useState } from "react";
 import MobileMenu from "./MobileMenu.tsx";
+import { links } from "@/constants/links.ts";
 
 type Props = {}
 
-interface ModalList {
-  title: string;
-  path: string;
-}
-
-interface LinkItem {
-  name: string;
-  path: string;
-  modalList: ModalList[];
-}
-
-type LinkNav = LinkItem[];
-
 function NavBar({ }: Props) {
-  const links: LinkNav = [
-    {
-      name: TEXT_TH.NAV.HOME,
-      path: ROUTE.HOME,
-      modalList: []
-    },
-    {
-      name: TEXT_TH.NAV.ABOUT,
-      path: ROUTE.ABOUT,
-      modalList: []
-    },
-    {
-      name: TEXT_TH.NAV.CATALOGUE,
-      path: ROUTE.CATALOGUE,
-      modalList: []
-    },
-    {
-      name: TEXT_TH.NAV.SERVICE,
-      path: ROUTE.SERVICE,
-      modalList: []
-    },
-    {
-      name: TEXT_TH.NAV.WORK,
-      path: ROUTE.WORK,
-      modalList: []
-    },
-    {
-      name: TEXT_TH.NAV.NEW,
-      path: ROUTE.NEW,
-      modalList: []
-    },
-    {
-      name: TEXT_TH.NAV.CONTACT,
-      path: ROUTE.CONTACT,
-      modalList: []
-    },
-    {
-      name: "Pallete",
-      path: "/pallete",
-      modalList: []
-    },
-  ]
 
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
-  const [animateMenu, setAnimateMenu] = useState<boolean>(false);
+  // const [animateMenu, setAnimateMenu] = useState<boolean>(false);
 
   useEffect(() => {
     if (showMobileMenu) {
@@ -85,10 +26,10 @@ function NavBar({ }: Props) {
 
   const handleShowMobileMenu = (): void => {
     if (showMobileMenu) {
-      setAnimateMenu(false);
+      // setAnimateMenu(false);
       setTimeout(() => { setShowMobileMenu(false) }, 300);
     } else {
-      setAnimateMenu(true);
+      // setAnimateMenu(true);
       setTimeout(() => { setShowMobileMenu(true) }, 300);
     }
   };

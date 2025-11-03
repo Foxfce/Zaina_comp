@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
-import Header from '../conponents/Header'
-import Footer from '../conponents/Footer'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import useHashLinkScroll from '../utils/useHashLinkScroll';
 
 type Props = {}

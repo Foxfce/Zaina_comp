@@ -4,7 +4,7 @@ import {ROUTE} from '../constants/routes'
 
 import Layout from '../pages/Layout'
 import Home from '../pages/Home'
-import About from '../conponents/About'
+import About from '../components/About'
 
 type Props = {}
 

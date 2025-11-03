@@ -20,7 +20,7 @@ type Props = {
 export default function MobileMenu({  showMobileMenuProp, handleShowMobileMenu, links, assets }: Props) {
     const [mounted, setMounted] = useState<boolean>(false);     // controls whether the DOM is present
     const [visible, setVisible] = useState<boolean>(false);     // controls CSS classes (open/closed)
-    const timeoutRef = useRef<number | null>(null);
+    const timeoutRef = useRef<any>(null);
 
     // sync with external prop (or manage toggle internally)
     useEffect(() => {

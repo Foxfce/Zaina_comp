@@ -1,5 +1,7 @@
-import About from "../conponents/About"
-import Projects from "../conponents/Projects"
+import About from "../components/About"
+import Contact from "../components/Contact"
+import Projects from "../components/Projects"
+import Testimonial from "../components/Testimonial"
 
 type Props = {}
 
@@ -8,6 +10,8 @@ function Home({}: Props) {
     <>
     <About />
     <Projects />
+    <Testimonial />
+    <Contact />
     </>
   )
 }

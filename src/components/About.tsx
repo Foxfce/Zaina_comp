@@ -1,11 +1,16 @@
-import React from 'react'
 import { assets } from '../assets/mockup/assets'
+import {motion} from "motion/react"
 
 type Props = {}
 
 function About({ }: Props) {
     return (
-        <div className='flex flex-col items-center justify-center container mx-auto p-14 md:px-20 lg:px-32 w-full overflow-hidden' id="About">
+        <motion.div
+            initial={{ opacity: 0, x: 200 }}
+            transition={{ duration: 0.5 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className='flex flex-col items-center justify-center container mx-auto p-14 md:px-20 lg:px-32 w-full overflow-hidden' id="About">
             <h1 className='text-2xl sm:text-4xl font-bold mb-2'><span className='text-primary'>About</span>
                 <span className='underline underline-offset-4 decoration-1 under font-light'>Our Brand</span>
             </h1>
@@ -33,11 +38,12 @@ function About({ }: Props) {
                             <p>Ongoing Projects</p>
                         </div>
                     </div>
-                    <p className='my-10 max-w-lg'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos sapiente odit iure, esse minus cupiditate quis distinctio, saepe earum molestias accusamus cumque corrupti quae explicabo iusto vero dolor. Dignissimos, saepe.</p>
+                    <p className='mt-10 max-w-lg'>&emsp;เราให้บริการออกแบบและผลิตผ้าม่านหลากหลายประเภท เช่น ม่านตาไก่ ม่านม้วน ม่านปรับแสง มู่ลี่ และอื่น ๆ ทุกชิ้นใช้วัสดุคุณภาพเกรดพรีเมี่ยม หลากหลายสไตล์ ตอบโจทย์ทุกพื้นที่</p>
+                    <p className='mt-5 mb-10 max-w-lg'>&emsp;พร้อมบริการติดตั้งวอลเปเปอร์ เฟอร์นิเจอร์ลอยตัว และอุปกรณ์ตกแต่งบ้านแบบครบวงจร ราคาย่อมเยา ผลิตเองจากโรงงาน โดยทีมงานมืออาชีพ พร้อมรับประกันความพึงพอใจ</p>
                     <button className='btn-main-2 transition-all'>Learn More</button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
