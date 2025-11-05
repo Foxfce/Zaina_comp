@@ -1,7 +1,7 @@
-import { TEXT_TH } from "@/constants/th";
+// import { TEXT_TH } from "@/constants/th";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { TEXT_EN } from "@/constants/en";
+// import { TEXT_EN } from "@/constants/en";
 import type { LinkNav } from "@/constants/links";
 import MobileCollaspMenu from "./shadcn-ui/MobileCollaspMenu";
 
