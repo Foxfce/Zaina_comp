@@ -1,23 +1,27 @@
+import { TEXT_TH } from "@/constants/th";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { TEXT_EN } from "@/constants/en";
+import type { LinkNav } from "@/constants/links";
+import MobileCollaspMenu from "./shadcn-ui/MobileCollaspMenu";
 
-interface LinkItem {
-  name: string;
-  path: string;
-}
+// interface LinkItem {
+//     name: string;
+//     path: string;
+// }
 
 interface Assets {
-  cross_icon: string;
+    cross_icon: string;
 }
 
 type Props = {
     showMobileMenuProp: boolean,
-    handleShowMobileMenu:()=> void,
-    links: LinkItem[],
+    handleShowMobileMenu: () => void,
+    links: LinkNav,
     assets: Assets,
 }
 
-export default function MobileMenu({  showMobileMenuProp, handleShowMobileMenu, links, assets }: Props) {
+export default function MobileMenu({ showMobileMenuProp, handleShowMobileMenu, links, assets }: Props) {
     const [mounted, setMounted] = useState<boolean>(false);     // controls whether the DOM is present
     const [visible, setVisible] = useState<boolean>(false);     // controls CSS classes (open/closed)
     const timeoutRef = useRef<any>(null);
@@ -101,16 +105,18 @@ export default function MobileMenu({  showMobileMenuProp, handleShowMobileMenu, 
                     />
                 </div>
 
-                <nav className="flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium">
+                <nav className="flex flex-col items-center gap-2 mt-5 text-lg font-medium">
                     {links.map((link, index) => (
-                        <Link
-                            key={index}
-                            onClick={handleShowMobileMenu}
-                            to={link.path}
-                            className="cursor-pointer hover:text-primary px-4 py-2 rounded-full inline-block transition-all text-2xl font-bold"
-                        >
-                            {link.name}
-                        </Link>
+                        link.modalList.length > 0 ?
+                            <MobileCollaspMenu link={link} handleShowMobileMenu={handleShowMobileMenu} /> :
+                            <Link
+                                key={index}
+                                onClick={handleShowMobileMenu}
+                                to={link.path}
+                                className="cursor-pointer hover:text-primary px-4 py-2 rounded-full inline-block transition-all text-2xl font-bold"
+                            >
+                                {link.name}
+                            </Link>
                     ))}
                 </nav>
             </div>

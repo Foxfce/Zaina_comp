@@ -1,34 +1,35 @@
-import { useEffect, useState } from 'react'
-import { assets, projectsData } from '../assets/mockup/assets'
+// import { useEffect, useState } from 'react'
+// import { assets, projectsData } from '../assets/assets'
 import {motion} from "motion/react";
+import { ProjectSlide } from './ProjectSlide';
 
 type Props = {}
 
 function Projects({ }: Props) {
 
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [cardsToShow, setCardsToShow] = useState<number>(1);
+  // const [currentIndex, setCurrentIndex] = useState<number>(0);
+  // const [cardsToShow, setCardsToShow] = useState<number>(1);
 
-  useEffect(() => {
-    const updateCardsToShow = () => {
-      if (window.innerWidth >= 1024) {
-        setCardsToShow(projectsData.length);
-      } else {
-        setCardsToShow(1);
-      }
-    };
-    updateCardsToShow();
+  // useEffect(() => {
+  //   const updateCardsToShow = () => {
+  //     if (window.innerWidth >= 1024) {
+  //       setCardsToShow(projectsData.length);
+  //     } else {
+  //       setCardsToShow(1);
+  //     }
+  //   };
+  //   updateCardsToShow();
 
-    window.addEventListener('resize', updateCardsToShow);
-    return () => window.addEventListener('resize', updateCardsToShow);
-  }, [])
+  //   window.addEventListener('resize', updateCardsToShow);
+  //   return () => window.addEventListener('resize', updateCardsToShow);
+  // }, [])
 
-  const nextProject = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
-  };
-  const prevProject = () => {
-    setCurrentIndex((prevIndex) => prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1);
-  };
+  // const nextProject = () => {
+  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
+  // };
+  // const prevProject = () => {
+  //   setCurrentIndex((prevIndex) => prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1);
+  // };
 
   return (
     <motion.div 
@@ -36,13 +37,13 @@ function Projects({ }: Props) {
         transition={{ duration: 0.5 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-    className='container mx-auto py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-hidden' id='Projects'>
+    className='container mx-auto py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 overflow-hidden' id='Projects'>
       <h1 className='text-2xl sm:text-4xl font-bold mb-2 text-center'><span className='text-primary'>Projects</span>
         <span className='underline underline-offset-4 decoration-1 under font-light'>Completed</span></h1>
       <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'>Crafting Spaces, Building, Legacies-Explore Our Portfolio</p>
 
       {/* Slider buttons */}
-      <div className='flex justify-end items-center mb-8'>
+      {/* <div className='flex justify-end items-center mb-8'>
         <button
           onClick={prevProject}
           className='p-3 bg-softperl-primary hover:bg-softperl-secondary rounded mr-2 cursor-pointer'
@@ -55,15 +56,16 @@ function Projects({ }: Props) {
           aria-label='Next Project'>
           <img src={assets.right_arrow} alt="Next" />
         </button>
-      </div>
+      </div> */}
 
       {/* Project slider container */}
-      <div className='overflow-hidden'>
-        <div
+      <div>
+        {/* <div
           className='flex gap-8 transition-transform duration-500 ease-in-out'
           style={{ transform: `translateX(-${(currentIndex * 100) / cardsToShow}%)`, }}
         >
-          {/* mock up data */}
+
+          mock up data
           {projectsData.map((project, index) => (
             <div
               key={index}
@@ -76,16 +78,17 @@ function Projects({ }: Props) {
                     {project.title}
                   </h2>
                   <p className='text-gray-500 text-sm'>
-                    {project.price} <span className='px-1'>|</span> {project.location}
+                  {project.product} <span className='px-1'>|</span> {project.location}
                   </p>
-
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+                  
+                  </div>
+                  </div>
+                  </div>
+                  ))}
+                  
+                  </div> */}
+          <ProjectSlide />
       </div>
-
     </motion.div>
   )
 }

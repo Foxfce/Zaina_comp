@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
-import Header from '../components/Header'
 import Footer from '../components/Footer'
 import useHashLinkScroll from '../utils/useHashLinkScroll';
+import NavBar from '@/components/NavBar';
 
 type Props = {}
 
@@ -10,7 +10,7 @@ function Layout({ }: Props) {
 
     return (
         <div className='w-full overflow-hidden'>
-            <Header />
+            <NavBar />
             <Outlet />
             <Footer />
         </div>

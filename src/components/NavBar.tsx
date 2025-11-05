@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
 import { assets } from "../assets/mockup/assets.ts"
 import { useEffect, useState } from "react";
 import MobileMenu from "./MobileMenu.tsx";
 import { links } from "@/constants/links.ts";
+import { LogoIcon, LogoZaina } from "@/icons/iconIndex.tsx";
+import NavMenu from "./NavMenu.tsx";
 
 type Props = {}
 
@@ -36,17 +37,22 @@ function NavBar({ }: Props) {
 
   return (
     <div className='absolute top-0 left-0 w-full z-10'>
-      <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-26 bg-transparent">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-15 bg-transparent">
 
-        <img src={assets.logo} alt="" />
+        {/* <img src={assets.logo} alt="" /> */}
+        <div className="flex justify-center items-center gap-2">
+          <LogoIcon className='fill-red-primary h-10' />
+          <LogoZaina className='h-8' />
+        </div>
 
         <nav className="hidden lg:flex gap-7">
-          {links.map((link, index) =>
+          {/* {links.map((link, index) =>
             <Link key={index} to={link.path} className="cursor-pointer text-softperl-primary hover:text-primary flex h-full justify-center items-center align-middle transition-all">{link.name}</Link>
-          )}
-
+          )} */}
+          <NavMenu links={links} />
         </nav>
-        <button className="btn-main-1 rounded-full hidden lg:block">Sign In</button>
+
+        <button className="btn-main-1 rounded-8 hidden lg:block transition-all">Sign In</button>
         <img
           onClick={handleShowMobileMenu}
           src={assets.menu_icon}
@@ -55,29 +61,6 @@ function NavBar({ }: Props) {
       </div>
 
       {/* -------------- mobile-menu ------------- */}
-
-      {/* <div
-        className={`fixed lg:hidden w-full right-0 top-0 bottom-0 bg-softperl-primary overflow-hidden transition-all duration-300 ${animateMenu ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}
-      >
-        <div className="flex justify-end p-6 cursor-pointer">
-          <img
-            onClick={handleShowMobileMenu}
-            src={assets.cross_icon}
-            className="w-6" alt="" />
-        </div>
-        <nav className="flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium">
-          {links.map((link, index) =>
-            <Link
-              key={index}
-              onClick={handleShowMobileMenu}
-              to={link.path}
-              className="cursor-pointer hover:text-primary px-4 py-2 rounded-full inline-block transition-all"
-            >{link.name}
-            </Link>
-          )}
-        </nav>
-      </div> */}
-
       <MobileMenu
         showMobileMenuProp={showMobileMenu}
         handleShowMobileMenu={handleShowMobileMenu}
