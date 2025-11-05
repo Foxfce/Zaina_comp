@@ -1,6 +1,6 @@
 import { assets } from '../assets/mockup/assets'
 import { motion } from "motion/react"
-import CompanyVideo from './CompanyVideo'
+// import CompanyVideo from './CompanyVideo'
 import { Link } from 'react-router-dom'
 import { ROUTE } from '@/constants/routes'
 
@@ -43,12 +43,19 @@ function About({ }: Props) {
                     </div>
                     <p className='mt-10 max-w-lg'>&emsp;เราให้บริการออกแบบและผลิตผ้าม่านหลากหลายประเภท เช่น ม่านตาไก่ ม่านม้วน ม่านปรับแสง มู่ลี่ และอื่น ๆ ทุกชิ้นใช้วัสดุคุณภาพเกรดพรีเมี่ยม หลากหลายสไตล์ ตอบโจทย์ทุกพื้นที่</p>
                     <p className='mt-5 mb-10 max-w-lg'>&emsp;พร้อมบริการติดตั้งวอลเปเปอร์ เฟอร์นิเจอร์ลอยตัว และอุปกรณ์ตกแต่งบ้านแบบครบวงจร ราคาย่อมเยา ผลิตเองจากโรงงาน โดยทีมงานมืออาชีพ พร้อมรับประกันความพึงพอใจ</p>
-                    <Link to={ROUTE.ABOUT.replace('#','')} replace={true}>
+                    <Link to={ROUTE.ABOUT.replace('#', '')} replace={true}>
                         <button className='btn-main-2 transition-all'>Learn More</button>
                     </Link>
                 </div>
             </div>
-            <CompanyVideo />
+            <iframe
+                className='overflow-hidden rounded-lg border-none mt-12 aspect-video'
+                src="https://www.youtube.com/embed/mat-7ED5uuU&loop=1&autoplay=1&mute=1"
+                title="Zaina Introduction" frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen></iframe>
+            {/* <CompanyVideo /> */}
         </motion.div>
     )
 }
