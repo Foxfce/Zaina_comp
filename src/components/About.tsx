@@ -50,7 +50,7 @@ function About({ }: Props) {
             </div>
             <iframe
                 className='overflow-hidden rounded-lg border-none mt-12 aspect-video'
-                src="https://www.youtube.com/embed/mat-7ED5uuU&loop=1&autoplay=1&mute=1"
+                src="https://www.youtube.com/embed/mat-7ED5uuU?loop=1&autoplay=1&mute=1"
                 title="Zaina Introduction" frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
