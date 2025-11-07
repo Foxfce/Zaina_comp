@@ -1,10 +1,5 @@
 import { create } from 'zustand';
-import { createJSONStorage, persist, PersistOptions } from 'zustand/middleware';
-
-type ProductPersist = (
-    set: (newState: Partial<ProductState>) => void,
-    get: () => ProductState
-) => ProductState;
+import { createJSONStorage, persist} from 'zustand/middleware';
 
 type ProductType = "CURTAIN" | "ROLLER BLIND" | "EYELET" | "SKYLIGHT" | ""
 
@@ -16,24 +11,28 @@ type Products = {
 }
 
 interface ProductState {
-    allProducts: any[];
-    newProducts : any[];
-    focusProducts: any[];
-    addProductToCart: (product: any) => void;
-    removeProductFromCart: (product: any) => void;
+    allProducts: Products[];
+    newProducts : Products[];
+    focusProducts: Products[];
+    addProduct: (product: Products) => void;
+    removeProduct: (productName: string) => void;
 }
 
 export const useCartStore = create<ProductState>()(
     persist<ProductState>(
-        (set, get) => ({
-            productsInCart: [],
-            productAmount : 0,
-            addProductToCart:() => set(() => ({productAmount : get().productAmount+1})),
-            removeProductFromCart: () => set(() => ({productAmount : 0}))
+        (set) => ({
+            allProducts: [],
+            newProducts: [],
+            focusProducts: [],
+            addProduct:(product: Products) => set(state => ({
+                allProducts : [...state.allProducts, product]
+            })),
+            removeProduct: (productName: string) => set(state =>({
+                allProducts : state.allProducts.filter(p => p.name !== productName)
+            }))
         }), {
-            name: 'cartState',
+            name: 'productState',
             storage: createJSONStorage(() => localStorage)
-        } as PersistOptions<ProductState, ProductState>
-
+        }
     )
 )
