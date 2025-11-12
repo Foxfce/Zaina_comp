@@ -30,7 +30,7 @@ function NavMenu({ links }: Props) {
                                                 <ListItem
                                                     key={component.title}
                                                     title={component.title}
-                                                    href={component.path}
+                                                    href={`${link.path.replace('#','')}/${component.path}`}
                                                 >
                                                     {/* {component.description} */}
                                                 </ListItem>

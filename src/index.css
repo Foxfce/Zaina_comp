@@ -80,7 +80,7 @@
     --sidebar-ring: oklch(0.708 0 0);
 }
 
-body.dark {
+.dark {
     --bg-dark: hsl(0, 0, 5);
     --bg: hsl(0, 0, 10);
     --bg-light: hsl(0, 0, 15);
