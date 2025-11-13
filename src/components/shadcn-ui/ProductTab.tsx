@@ -2,12 +2,13 @@ import { motion } from 'motion/react'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { EyeletCurtain, HorizonBlind, InteriorFilm, MotorSystem, RollerBlind, SkyLight, VerticalBlind, VinylTile } from '@/icons/iconIndex'
-import React from 'react'
+import React, { useEffect } from 'react'
+import {  useParams } from 'react-router-dom'
 
 const tabs = [
   {
     name: 'Blind',
-    value: 'blind',
+    value: 'wooden-blinds',
     icon: HorizonBlind,
     content: (
       <>
@@ -18,7 +19,7 @@ const tabs = [
   },
   {
     name: 'Roller Blind',
-    value: 'rollerBlind',
+    value: 'roller-blinds',
     icon: RollerBlind,
     content: (
       <>
@@ -29,7 +30,7 @@ const tabs = [
   },
   {
     name: 'Vertical Blind',
-    value: 'verticalBlind',
+    value: 'vertical-blinds',
     icon: VerticalBlind,
     content: (
       <>
@@ -40,7 +41,7 @@ const tabs = [
   },
   {
     name: 'Eyelet Curtain',
-    value: 'eyeletCurtain',
+    value: 'eyelet-curtains',
     icon: EyeletCurtain,
     content: (
       <>
@@ -50,7 +51,7 @@ const tabs = [
   },
   {
     name: 'Interior Film',
-    value: 'interiorFilm',
+    value: 'interior-films',
     icon: InteriorFilm,
     content: (
       <>
@@ -60,7 +61,7 @@ const tabs = [
   },
   {
     name: 'Vinyl Tile',
-    value: 'vinylTile',
+    value: 'vinyl-tiles',
     icon: VinylTile,
     content: (
       <>
@@ -80,7 +81,7 @@ const tabs = [
   },
   {
     name: 'Motor System',
-    value: 'motorSystem',
+    value: 'motor-system',
     icon: MotorSystem,
     content: (
       <>
@@ -91,56 +92,44 @@ const tabs = [
 ]
 
 const ProductTab = () => {
-  const [activeTab, setActiveTab] = React.useState('blind')
-  const tabRefs = React.useRef<(HTMLButtonElement | null)[]>([])
-  const [underlineStyle, setUnderlineStyle] = React.useState({ left: 0, width: 0 })
+  const productLink = useParams();
+  const [activeTab, setActiveTab] = React.useState(productLink.product);
 
-  React.useLayoutEffect(() => {
-    const activeIndex = tabs.findIndex(tab => tab.value === activeTab)
-    const activeTabElement = tabRefs.current[activeIndex]
+  useEffect(()=>{
+    setActiveTab(productLink.product);
+  },[productLink])
 
-    if (activeTabElement) {
-      const { offsetLeft, offsetWidth } = activeTabElement
+  const handleClickLink = () => {
 
-      setUnderlineStyle({
-        left: offsetLeft,
-        width: offsetWidth
-      })
-    }
-  }, [activeTab])
+  };
 
   return (
     <div className='w-full max-w-sm md:max-w-md lg:max-w-full'>
       <Tabs value={activeTab} onValueChange={setActiveTab} className='gap-4 w-full'>
         {/* <TabsList className='flex flex-wrap sm:flex-nowrap justify-center bg-background relative rounded-none p-0 h-full'> */}
         <TabsList className='grid grid-cols-4 grid-rows-2  gap-6 w-full bg-background relative rounded-none p-0 h-full lg:grid-cols-8 lg:grid-rows-1 '>
-            {tabs.map(({ icon: Icon, name, value }, index) => (
+          {tabs.map(({ icon: Icon, name, value }) => (
               <TabsTrigger
+                onClick={handleClickLink}
                 key={value}
                 value={value}
-                ref={el => {
-                  tabRefs.current[index] = el
-                }}
-                className='flex flex-col items-center gap-2 px-2.5 sm:px-3 bg-transparent dark:data-[state=active]:bg-background relative z-5 rounded-none border-0 data-[state=active]:shadow-none'
+                className='flex flex-col items-center gap-2 px-2.5 sm:px-3 bg-transparent dark:data-[state=active]:bg-background relative z-5 rounded-none border-0 data-[state=active]:shadow-none md:whitespace-nowrap'
               >
                 <Icon className="" />
                 {name}
+                {activeTab === value && <motion.div
+                  className='bg-accent-light absolute bottom-0 z-[-1] h-full w-full rounded-xl'
+                  layoutId='underline'
+                  transition={{
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 40
+                  }}
+                />}
               </TabsTrigger>
-            ))}
+          ))}
 
-          <motion.div
-            className='bg-primary absolute bottom-0 z-5 h-0.5'
-            layoutId='underline'
-            style={{
-              left: underlineStyle.left,
-              width: underlineStyle.width
-            }}
-            transition={{
-              type: 'spring',
-              stiffness: 400,
-              damping: 40
-            }}
-          />
+
         </TabsList>
 
         {tabs.map(tab => (

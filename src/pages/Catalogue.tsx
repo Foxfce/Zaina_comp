@@ -1,5 +1,6 @@
 import ProductTab from "@/components/shadcn-ui/ProductTab";
-import { Outlet, useParams} from "react-router-dom"
+import { motion } from "motion/react";
+import { Outlet, useParams } from "react-router-dom"
 
 
 type Props = {}
@@ -9,10 +10,19 @@ function Catalogue({ }: Props) {
 
   return (
     <>
-      <div className="container flex flex-col justify-center items-center mx-auto py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-hidden">
-        <div>
-          Product Catalogue
-        </div>
+      <div className="min-h-80 mb-4 bg-cover bg-center flex item-center w-full overflow-hidden" style={{ backgroundImage: "url('/header_img.png')" }}>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          transition={{ duration: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="container text-center mx-auto my-auto py-4 px-6 md:px-20 lg:px-32 text-softperl-primary"
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-[64px] inline-block max-w-3xl pt-20">PRODUCT</h2>
+        </motion.div>
+      </div>
+
+      <div className="container flex flex-col justify-center items-center mx-auto py-4 px-6 md:px-20 lg:px-32 w-full overflow-hidden">
         <ProductTab />
         <Outlet />
       </div>

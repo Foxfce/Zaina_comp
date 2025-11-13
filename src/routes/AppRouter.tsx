@@ -20,7 +20,7 @@ function AppRouter({ }: Props) {
         <Route path={ROUTE.HOME} element={<Layout />}>
           <Route index element={<Home />} />
           <Route path={ROUTE.ABOUT.replace("#", '')} element={<About />} />
-          <Route path={ROUTE.CATALOGUE.replace("#", '')} element={<Catalogue />}>
+          <Route path={ROUTE.CATALOGUE.replace("#", '')+'/:product'} element={<Catalogue />}>
             <Route index element={<CatalogueIndex />} />
             <Route path={ROUTE.ROLLER_BLIND} element={<UnderConstruction />} />
             <Route path={ROUTE.VERTICAL_BLIND} element={<UnderConstruction />} />
