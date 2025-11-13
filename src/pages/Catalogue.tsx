@@ -24,7 +24,6 @@ function Catalogue({ }: Props) {
 
       <div className="container flex flex-col justify-center items-center mx-auto py-4 px-6 md:px-20 lg:px-32 w-full overflow-hidden">
         <ProductTab />
-        <Outlet />
       </div>
     </>
   )

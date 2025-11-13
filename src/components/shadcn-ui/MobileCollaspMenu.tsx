@@ -33,7 +33,7 @@ export default function MobileCollaspMenu({ link, handleShowMobileMenu }: Props)
                         < Link
                             key={index}
                             onClick={handleShowMobileMenu}
-                            to={item.path}
+                            to={`${link.path.replace("#", '')}/${item.path}`}
                             className="cursor-pointer hover:text-accent-dark hover:bg-softperl-secondary w-full py-2 inline-block transition-all text-2xl font-bold text-center "
                         >
                             {item.title}

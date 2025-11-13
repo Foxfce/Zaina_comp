@@ -73,7 +73,7 @@ export function PhoneLogo(props: any) {
   )
 }
 
-export function VerticalBlind(props: any) {
+export function VerticalBlindIcon(props: any) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ export function VerticalBlind(props: any) {
   )
 }
 
-export function HorizonBlind(props: any) {
+export function HorizonBlindIcon(props: any) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
@@ -94,7 +94,7 @@ export function HorizonBlind(props: any) {
   )
 }
 
-export function EyeletCurtain(props: any) {
+export function EyeletCurtainIcon(props: any) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
@@ -104,7 +104,7 @@ export function EyeletCurtain(props: any) {
   )
 }
 
-export function RollerBlind(props: any) {
+export function RollerBlindIcon(props: any) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
@@ -129,7 +129,7 @@ export function RollerBlind(props: any) {
   )
 }
 
-export function MotorSystem(props: any) {
+export function MotorSystemIcon(props: any) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -142,7 +142,7 @@ export function MotorSystem(props: any) {
   )
 }
 
-export function InteriorFilm(props: any) {
+export function InteriorFilmIcon(props: any) {
   return (
     <svg
       fill="#000"
@@ -159,7 +159,7 @@ export function InteriorFilm(props: any) {
   )
 }
 
-export function VinylTile(props: any) {
+export function VinylTileIcon(props: any) {
   return (
     <svg
       fill="#000"
@@ -175,7 +175,7 @@ export function VinylTile(props: any) {
   )
 }
 
-export function SkyLight(props: any) {
+export function SkyLightIcon(props: any) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 512 512"
