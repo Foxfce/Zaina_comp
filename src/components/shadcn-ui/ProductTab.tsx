@@ -127,7 +127,7 @@ const ProductTab = () => {
 
         </TabsList>
           {tabs.map(tab => (
-            <TabsContent key={tab.value} value={tab.value} className='flex flex-wrap justify-center w-full gap-4'>
+            <TabsContent key={tab.value} value={tab.value} className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center w-full gap-4'>
               {/* Past tab content here you can delete <p> tag */}
               {tab.content}
             </TabsContent>

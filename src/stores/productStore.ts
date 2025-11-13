@@ -16,6 +16,7 @@ type Color = {
 
 type Products = {
     name: string,
+    productCode: string,
     type: ProductType[],
     typeName: string,
     material: string,
