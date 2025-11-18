@@ -6,7 +6,7 @@ function WoodenBlind({ }: Props) {
     return (
         <>
             {
-                Array(5).fill(null).map((_,index) => <ProductCard key={index} />)
+                Array(16).fill(null).map((_,index) => <ProductCard key={index} />)
             }
         </>
     )

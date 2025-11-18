@@ -99,16 +99,16 @@ const ProductTab = () => {
   };
 
   return (
-    <div className='w-full max-w-sm md:max-w-md lg:max-w-full'>
+    <div className='bg-softperl-accent-light max-w-sm md:max-w-md lg:max-w-full'>
       <Tabs value={activeTab} onValueChange={setActiveTab} className='gap-4 w-full'>
         {/* <TabsList className='flex flex-wrap sm:flex-nowrap justify-center bg-background relative rounded-none p-0 h-full'> */}
-        <TabsList className='grid grid-cols-4 grid-rows-2  gap-6 w-full bg-background relative rounded-none p-0 h-full lg:grid-cols-8 lg:grid-rows-1 '>
+        <TabsList className='grid grid-cols-4 grid-rows-2  gap-6 w-full relative px-8 py-4 h-full lg:grid-cols-8 lg:grid-rows-1 bg-softperl-accent-light shadow-sm rounded-sm'>
           {tabs.map(({ icon: Icon, name, value }) => (
             <TabsTrigger
               onClick={() => handleClickLink(value)}
               key={value}
               value={value}
-              className='flex flex-col items-center gap-2 px-2.5 sm:px-3 bg-transparent dark:data-[state=active]:bg-background relative z-5 rounded-none border-0 data-[state=active]:shadow-none md:whitespace-nowrap'
+              className='flex flex-col items-center gap-2 px-2.5 sm:px-3 bg-transparent dark:data-[state=active]:bg-background relative z-5 rounded-none border-0 data-[state=active]:shadow-none md:whitespace-nowrap hover:bg-softperl-secondary hover:rounded-2xl transition-all'
             >
               <Icon className="" />
               {name}
@@ -123,17 +123,16 @@ const ProductTab = () => {
               />}
             </TabsTrigger>
           ))}
-
-
         </TabsList>
-          {tabs.map(tab => (
-            <TabsContent key={tab.value} value={tab.value} className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center w-full gap-4'>
-              {/* Past tab content here you can delete <p> tag */}
-              {tab.content}
-            </TabsContent>
-          ))}
+
+        {tabs.map(tab => (
+          <TabsContent key={tab.value} value={tab.value} className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center gap-4 p-4'>
+            {/* Past tab content here you can delete <p> tag */}
+            {tab.content}
+          </TabsContent>
+        ))}
       </Tabs>
-    </div >
+    </div>
   )
 }
 
