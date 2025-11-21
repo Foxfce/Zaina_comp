@@ -5,47 +5,57 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
+    type CarouselApi,
 } from "@/components/ui/carousel"
+import { useEffect, useState } from "react";
 
-import { projectsData } from '../../assets/assets'
+export function ProductSlide({ previewTab }: { previewTab: any[] }) {
 
-export function ProductSlide() {
+    const [api, setApi] = useState<CarouselApi>();
+    const [canScrollPrev, setCanScrollPrev] = useState<boolean>(false)
+    const [canScrollNext, setCanScrollNext] = useState<boolean>(false)
+
+    useEffect(() => {
+        if (!api) {
+            return;
+        }
+
+        const onSelect = (api: CarouselApi) => {
+            setCanScrollPrev(api!.canScrollPrev());
+            setCanScrollNext(api!.canScrollNext());
+        }
+
+        api.on("select", onSelect)
+        onSelect(api) // initial Check
+
+        return () => {
+            api.off("select", onSelect);
+        }
+    }, [api])
+
     return (
         <Carousel
             opts={{
                 align: "start",
-                loop: true,
-
+                loop: false,
+                dragFree: true,
             }}
+            setApi={setApi}
             className="w-full"
         >
             <CarouselContent>
-                {projectsData.map((project, index) => (
-                    <CarouselItem key={index} className="sm:basis-1/1 md:basis-1/2 lg:basis-1/4">
-                        <div className="p-1">
-                            <Card className="rounded-md border-softperl-accent-light shadow-md">
-                                <CardContent className="flex relative w-full h-auto sm:aspect-auto items-center justify-center rounded-md overflow-hidden">
-                                    <img src={project.image} alt="" className="aspect-auto object-fill" />
-
-                                    <div className='absolute left-0 right-0 bottom-2 flex justify-center'>
-                                        <div className='inline-block bg-softperl-primary w-3/4 px-4 py-2 shadow-md rounded-md'>
-                                            <h2 className='text-xl font-semibold text-gray-800'>
-                                                {project.title}
-                                            </h2>
-                                            <p className='text-gray-500 text-sm'>
-                                                {project.product} <span className='px-1'>|</span> {project.location}
-                                            </p>
-
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </div>
+                {previewTab.map((item: any, index: number) => (
+                    <CarouselItem key={index} className="basis-1/4 md:basis-1/5 lg:basis-1/6">
+                        <Card className=" border-softperl-accent-light shadow-md p-0">
+                            <CardContent className="flex relative w-full h-full items-center justify-center overflow-hidden">
+                                    <img key={index} src={item.src} alt={item.label} />
+                            </CardContent>
+                        </Card>
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious className="rounded-full" />
-            <CarouselNext className="rounded-full" />
+            {canScrollPrev && <CarouselPrevious className="rounded-full bg-transparent -left-8" />}
+            {canScrollNext && <CarouselNext className="rounded-full bg-transparent -right-8" />}
         </Carousel>
     )
 }

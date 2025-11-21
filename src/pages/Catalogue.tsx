@@ -1,4 +1,3 @@
-import ProductTab from "@/components/shadcn-ui/ProductTab";
 import { motion } from "motion/react";
 import { Outlet, useParams } from "react-router-dom"
 
@@ -6,7 +5,7 @@ import { Outlet, useParams } from "react-router-dom"
 type Props = {}
 
 function Catalogue({ }: Props) {
-  const productParam = useParams();
+  const {product} = useParams();
 
   return (
     <>
@@ -23,7 +22,7 @@ function Catalogue({ }: Props) {
       </div>
 
       <div className="container flex flex-col justify-center items-center mx-auto px-6 md:px-20 lg:px-32 w-full">
-        <ProductTab />
+        <Outlet />
       </div>
     </>
   )

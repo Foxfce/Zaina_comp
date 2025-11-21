@@ -31,31 +31,31 @@ export const links: LinkNav = [
       modalList: [
         {
           title: TEXT_TH.CATALOGUE.ROLLER_BLIND,
-          path: ROUTE.ROLLER_BLIND,
+          path: ROUTE.ROLLER_BLIND+'/products',
         },
         {
           title: TEXT_TH.CATALOGUE.VERTICAL_BLIND,
-          path: ROUTE.VERTICAL_BLIND,
+          path: ROUTE.VERTICAL_BLIND+'/products',
         },
         {
           title: TEXT_TH.CATALOGUE.WOODEN_BLIND,
-          path: ROUTE.WOODEN_BLIND,
+          path: ROUTE.WOODEN_BLIND+'/products',
         },
         {
           title: TEXT_TH.CATALOGUE.EYELET_CURTAIN,
-          path: ROUTE.EYELET_CURTAIN,
+          path: ROUTE.EYELET_CURTAIN+'/products',
         },
         {
           title: TEXT_TH.CATALOGUE.INT_FILM,
-          path: ROUTE.INT_FILM,
+          path: ROUTE.INT_FILM+'/products',
         },
         {
           title: TEXT_TH.CATALOGUE.SKYLIGHT,
-          path: ROUTE.SKYLIGHT,
+          path: ROUTE.SKYLIGHT+'/products',
         },
         {
           title: TEXT_TH.CATALOGUE.MOTOR_SYSTEM,
-          path: ROUTE.MOTOR_SYSTEM,
+          path: ROUTE.MOTOR_SYSTEM+'/products',
         },
       ]
     },

@@ -13,6 +13,7 @@ import InteriorFilm from '../products/product-list/InteriorFilm'
 import VinylTile from '../products/product-list/VinylTile'
 import Skylight from '../products/product-list/Skylight'
 import Motor from '../products/product-list/Motor'
+import { ROUTE } from '@/constants/routes'
 
 const tabs = [
   {
@@ -94,7 +95,7 @@ const ProductTab = () => {
 
   const handleClickLink = (value: string) => {
     setActiveTab(value);
-    const newPath = `/catalogue/${activeTab}`;
+    const newPath = `/${ROUTE.CATALOGUE.replace(/[#/]/g,'')}/${activeTab}/products`;
     navigate(newPath, { replace: true });
   };
 
@@ -127,7 +128,6 @@ const ProductTab = () => {
 
         {tabs.map(tab => (
           <TabsContent key={tab.value} value={tab.value} className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center gap-4 p-4'>
-            {/* Past tab content here you can delete <p> tag */}
             {tab.content}
           </TabsContent>
         ))}

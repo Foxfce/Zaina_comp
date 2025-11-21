@@ -15,7 +15,7 @@ function ProductsPreview({}: Props) {
         <span className='underline underline-offset-4 decoration-1 under font-light'>Catalogue</span></h1>
       <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'>High Quality, , Legacies-Explore Our Portfolio</p>
       <div>
-          <ProductSlide />
+          {/* <ProductSlide /> */}
       </div>
     </motion.div>
   )
